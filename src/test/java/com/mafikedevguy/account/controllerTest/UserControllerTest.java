@@ -41,6 +41,7 @@ public class UserControllerTest {
 	
 	@Test
 	public void registrationTestforHappyFlow() throws Exception{
+		@SuppressWarnings("unused")
 		User user = new User();
 		mockMvc.perform(get("/registration"))
         .andExpect(status().isOk())

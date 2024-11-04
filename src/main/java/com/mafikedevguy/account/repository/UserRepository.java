@@ -1,7 +1,5 @@
 package com.mafikedevguy.account.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.mafikedevguy.account.model.User;

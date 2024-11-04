@@ -19,7 +19,8 @@ public class ElasticsearchUtil {
     	ElasticsearchUtil.object = object;    	
     	
     }
-    public static TransportClient trannsportClient() {
+    @SuppressWarnings("resource")
+	public static TransportClient trannsportClient() {
     	System.out.println(" elasticsearch client");
     	String elasticsearchHost =object.getElasticsearchHost();
     	String elasticsearchPort =object.getElasticsearchPort(); 
