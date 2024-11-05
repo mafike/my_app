@@ -9,12 +9,12 @@ pipeline {
               archive 'target/*.war' //so tfhat they can be downloaded later
             }
         }   
-    /*  stage('Unit Tests - JUnit and Jacoco') {
+      stage('Unit Tests - JUnit and Jacoco') {
        steps {
         sh "mvn test"
         
        }
-      } */
+      } 
      stage('Mutation Tests - PIT') {
       steps {
         sh "mvn org.pitest:pitest-maven:mutationCoverage"
