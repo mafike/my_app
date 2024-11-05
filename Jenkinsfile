@@ -74,6 +74,7 @@ pipeline {
      always {
      // junit 'target/surefire-reports/*.xml'
      // jacoco execPattern: 'target/jacoco.exec'
+      archiveArtifacts artifacts: 'target/pit-reports/**', allowEmptyArchive: true
       pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
       dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
     }
