@@ -50,14 +50,19 @@ pipeline {
             // Archive PIT reports directory temporarily to ensure it exists
             archiveArtifacts artifacts: 'target/pit-reports/**/*', allowEmptyArchive: true
 
-            // Publish the PIT mutation testing HTML report
-            publishHTML(target: [
-                reportName: 'PIT Mutation Testing Report',
-                reportDir: 'target/pit-reports',
-                reportFiles: 'index.html',
-                keepAll: true,
-                alwaysLinkToLastBuild: true
-            ])
+            // Dynamically publish the PIT mutation testing HTML report from the timestamped directory
+            script {
+                def reportDir = sh(script: 'ls -d target/pit-reports/*/', returnStdout: true).trim()
+                echo "Publishing report from: ${reportDir}"
+                
+                publishHTML(target: [
+                    reportName: 'PIT Mutation Testing Report',
+                    reportDir: reportDir,
+                    reportFiles: 'index.html',
+                    keepAll: true,
+                    alwaysLinkToLastBuild: true
+                ])
+            }
         }
     }
 }
