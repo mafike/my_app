@@ -188,7 +188,7 @@
                         <outputFormat>HTML</outputFormat>
                         <outputFormat>XML</outputFormat>
                     </outputFormats>
-                    <mutationThreshold>30</mutationThreshold>
+                    <mutationThreshold>80</mutationThreshold>
                     <reportDir>${project.build.directory}/pit-reports</reportDir>
                     <timestampedReports>true</timestampedReports>
                     <targetClasses>
