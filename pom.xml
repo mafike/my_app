@@ -189,15 +189,16 @@
 
             <!-- Surefire Plugin (for running tests) -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
-                <configuration>
-                    <includes>
-                        <include>**/*Test.java</include> <!-- Make sure your test names follow this pattern -->
-                    </includes>
-                </configuration>
-            </plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M5</version>
+            <configuration>
+                <!-- Ensure test results are being collected -->
+                <includes>
+                    <include>**/*Test.java</include> <!-- Adjust if your test class naming convention is different -->
+                </includes>
+            </configuration>
+        </plugin>
 
             <!-- Jacoco Plugin for Code Coverage -->
             <plugin>
