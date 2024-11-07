@@ -205,8 +205,6 @@
         </targetTests>
     </configuration>
 </plugin>
-
-<<<<<<< HEAD
             <!-- Surefire Plugin (for running tests) -->
             <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -258,7 +256,6 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.2</version>
             </plugin>
-=======
 			<!--                   Dependency Check Plugin                   -->
 			<plugin>
 				<groupId>org.owasp</groupId>
@@ -309,8 +306,6 @@
 				   </execution>
 				</executions>
 			 </plugin>
-		
->>>>>>> e34fdf2 (p)
         </plugins>
     </build>
 </project>
