@@ -37,32 +37,20 @@ pipeline {
     }
 
     post {
-        always {
-            junit '**/target/surefire-reports/*.xml'   // Archive JUnit test results
-            jacoco execPattern: '**/target/jacoco.exec' // Archive JaCoCo coverage results
-            
-            // Temporary step to list contents of target/pit-reports directory
-            script {
-                sh 'echo "Listing target/pit-reports contents..."'
-                sh 'ls -l target/pit-reports || echo "No pit-reports directory found"'
-            }
-            
-            // Archive PIT reports directory temporarily to ensure it exists
-            archiveArtifacts artifacts: 'target/pit-reports/**/*', allowEmptyArchive: true
-
-            // Dynamically publish the PIT mutation testing HTML report from the timestamped directory
-            script {
-                def reportDir = sh(script: 'ls -d target/pit-reports/*/', returnStdout: true).trim()
-                echo "Publishing report from: ${reportDir}"
-                
-                publishHTML(target: [
-                    reportName: 'PIT Mutation Testing Report',
-                    reportDir: reportDir,
-                    reportFiles: 'index.html',
-                    keepAll: true,
-                    alwaysLinkToLastBuild: true
-                ])
-            }
-        }
+     always {
+       junit 'target/surefire-reports/*.xml'
+       jacoco execPattern: 'target/jacoco.exec'
+       pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
+     // dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
     }
+
+    // success {
+
+    // }
+
+    // failure {
+
+    // }
+   }
+  
 }
