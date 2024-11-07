@@ -99,7 +99,7 @@
                     </outputFormats>
                     <mutationThreshold>80</mutationThreshold>
                     <reportDir>${project.build.directory}/pit-reports</reportDir>
-                    <timestampedReports>true</timestampedReports>
+                    <timestampedReports>false</timestampedReports> <!-- Disable timestamped directories -->
                     <targetClasses>
                         <param>com.mafikedevguy.*</param>
                     </targetClasses>
